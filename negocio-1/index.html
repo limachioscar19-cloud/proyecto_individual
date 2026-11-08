@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="El Rincón de Chamaca: almuerzos, platos especiales y pedidos por WhatsApp.">
+    <title>El Rincón de Chamaca</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <header class="header">
+        <nav class="navbar container">
+            <a href="#" class="brand" data-view="inicio">
+                <span class="brand-mark">RC</span>
+                <span class="brand-name">El Rincón <small>de Chamaca</small></span>
+            </a>
+
+            <button class="menu-toggle" id="menuToggle" aria-label="Abrir menú">
+                <span></span><span></span><span></span>
+            </button>
+
+            <div class="nav-links" id="navLinks">
+                <button class="nav-link active" data-view="inicio">Inicio</button>
+                <button class="nav-link" data-view="menu">Menú semanal</button>
+                <button class="nav-link" data-view="especiales">Fines de semana y feriados</button>
+                <button class="nav-link" data-view="pedidos">Pedidos</button>
+                <button class="nav-link" data-view="ubicacion">Ubicación</button>
+                <button class="nav-link" data-view="contacto">Contacto</button>
+            </div>
+
+            <div class="nav-actions">
+                <button class="icon-button" id="themeToggle" aria-label="Cambiar tema">☾</button>
+                <button class="cart-button" id="cartOpen">Mi pedido <span id="cartCount">0</span></button>
+            </div>
+        </nav>
+    </header>
+
+    <main class="main-container">
+
+        <section class="page-section active" id="inicio">
+            <div class="hero container">
+                <div class="hero-copy">
+                    <span class="eyebrow">COMIDA CON SABOR A HOGAR</span>
+                    <h1>Un buen plato,<br><em>un buen momento.</em></h1>
+                    <p>En El Rincón de Chamaca te esperamos para disfrutar de comida preparada con cariño. Conoce nuestros almuerzos y platos especiales.</p>
+
+                    <div class="hero-buttons">
+                        <button class="button button-primary" data-view="menu">Ver menú semanal →</button>
+                        <button class="button button-outline" data-view="pedidos">Realizar un pedido</button>
+                    </div>
+
+                    <div class="hero-note">✦ El sabor que reúne a todos</div>
+                </div>
+
+                <div class="hero-art">
+                    <div class="art-circle"></div>
+                    <div class="food-plate">
+                        <div class="plate-inner">
+                            <span class="food-main"></span>
+                            <span class="food-leaf">✿</span>
+                            <span class="food-spark">✦</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="welcome-strip container">
+                <div>
+                    <span class="section-kicker">BIENVENIDOS</span>
+                    <h2>Un rincón para <em>disfrutar.</em></h2>
+                </div>
+                <p>Almuerzos de lunes a jueves y platos especiales los fines de semana y feriados. ¡Te esperamos!</p>
+            </div>
+        </section>
+
+        <section class="page-section" id="menu">
+            <div class="container page-content">
+                <div class="section-heading">
+                    <div>
+                        <span class="section-kicker">DE LUNES A JUEVES</span>
+                        <h2>Menú de la <em>semana</em></h2>
+                    </div>
+                    <p>Consulta las opciones disponibles para cada día.</p>
+                </div>
+
+                <div class="price-information">
+                    <div>
+                        <strong>Almuerzo completo</strong>
+                        <span>Una sopa y un segundo</span>
+                        <b>20 Bs</b>
+                    </div>
+                    <div>
+                        <strong>Segundo por separado</strong>
+                        <span>Un plato a elección</span>
+                        <b>15 Bs</b>
+                    </div>
+                    <div>
+                        <strong>Sopa por separado</strong>
+                        <span>Una sopa del día</span>
+                        <b>7 Bs</b>
+                    </div>
+                </div>
+
+                <div class="menu-tools">
+                    <label class="search-box">
+                        <span>⌕</span>
+                        <input type="search" id="weeklySearch" placeholder="Buscar en el menú semanal...">
+                    </label>
+                </div>
+
+                <div class="days-grid" id="weeklyMenu">
+
+                    <article class="day-card">
+                        <button class="day-header" aria-expanded="false">
+                            <span class="day-icon">☀</span>
+                            <span class="day-title">
+                                <strong>Lunes</strong>
+                                <small>3 segundos y 1 sopa</small>
+                            </span>
+                            <span class="day-arrow">+</span>
+                        </button>
+                        <div class="day-details">
+                            <article class="food-option">
+                                <img src="https://images.unsplash.com/photo-1547592180-85f173990554?auto=format&fit=crop&w=240&q=80" alt="Plato de comida">
+                                <div><small>SEGUNDO 1</small><strong>Plato del día 1</strong><b>15 Bs</b></div>
+                            </article>
+                            <article class="food-option">
+                                <img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&w=240&q=80" alt="Plato de comida">
+                                <div><small>SEGUNDO 2</small><strong>Plato del día 2</strong><b>15 Bs</b></div>
+                            </article>
+                            <article class="food-option">
+                                <img src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?auto=format&fit=crop&w=240&q=80" alt="Plato de comida">
+                                <div><small>SEGUNDO 3</small><strong>Plato del día 3</strong><b>15 Bs</b></div>
+                            </article>
+                            <article class="food-option">
+                                <img src="https://images.unsplash.com/photo-1547592180-85f173990554?auto=format&fit=crop&w=240&q=80" alt="Sopa">
+                                <div><small>SOPA</small><strong>Sopa del día</strong><b>7 Bs</b></div>
+                            </article>
+                        </div>
+                    </article>
+
+                    <article class="day-card">
+                        <button class="day-header" aria-expanded="false">
+                            <span class="day-icon">☀</span>
+                            <span class="day-title">
+                                <strong>Martes</strong>
+                                <small>3 segundos y 1 sopa</small>
+                            </span>
+                            <span class="day-arrow">+</span>
+                        </button>
+                        <div class="day-details">
+                            <article class="food-option">
+                                <img src="https://images.unsplash.com/photo-1547592180-85f173990554?auto=format&fit=crop&w=240&q=80" alt="Plato de comida">
+                                <div><small>SEGUNDO 1</small><strong>Plato del día 1</strong><b>15 Bs</b></div>
+                            </article>
+                            <article class="food-option">
+                                <img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&w=240&q=80" alt="Plato de comida">
+                                <div><small>SEGUNDO 2</small><strong>Plato del día 2</strong><b>15 Bs</b></div>
+                            </article>
+                            <article class="food-option">
+                                <img src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?auto=format&fit=crop&w=240&q=80" alt="Plato de comida">
+                                <div><small>SEGUNDO 3</small><strong>Plato del día 3</strong><b>15 Bs</b></div>
+                            </article>
+                            <article class="food-option">
+                                <img src="https://images.unsplash.com/photo-1547592180-85f173990554?auto=format&fit=crop&w=240&q=80" alt="Sopa">
+                                <div><small>SOPA</small><strong>Sopa del día</strong><b>7 Bs</b></div>
+                            </article>
+                        </div>
+                    </article>
+
+                    <article class="day-card">
+                        <button class="day-header" aria-expanded="false">
+                            <span class="day-icon">☀</span>
+                            <span class="day-title">
+                                <strong>Miércoles</strong>
+                                <small>3 segundos y 1 sopa</small>
+                            </span>
+                            <span class="day-arrow">+</span>
+                        </button>
+                        <div class="day-details">
+                            <article class="food-option">
+                                <img src="https://images.unsplash.com/photo-1547592180-85f173990554?auto=format&fit=crop&w=240&q=80" alt="Plato de comida">
+                                <div><small>SEGUNDO 1</small><strong>Plato del día 1</strong><b>15 Bs</b></div>
+                            </article>
+                            <article class="food-option">
+                                <img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&w=240&q=80" alt="Plato de comida">
+                                <div><small>SEGUNDO 2</small><strong>Plato del día 2</strong><b>15 Bs</b></div>
+                            </article>
+                            <article class="food-option">
+                                <img src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?auto=format&fit=crop&w=240&q=80" alt="Plato de comida">
+                                <div><small>SEGUNDO 3</small><strong>Plato del día 3</strong><b>15 Bs</b></div>
+                            </article>
+                            <article class="food-option">
+                                <img src="https://images.unsplash.com/photo-1547592180-85f173990554?auto=format&fit=crop&w=240&q=80" alt="Sopa">
+                                <div><small>SOPA</small><strong>Sopa del día</strong><b>7 Bs</b></div>
+                            </article>
+                        </div>
+                    </article>
+
+                    <article class="day-card">
+                        <button class="day-header" aria-expanded="false">
+                            <span class="day-icon">☀</span>
+                            <span class="day-title">
+                                <strong>Jueves</strong>
+                                <small>3 segundos y 1 sopa</small>
+                            </span>
+                            <span class="day-arrow">+</span>
+                        </button>
+                        <div class="day-details">
+                            <article class="food-option">
+                                <img src="https://images.unsplash.com/photo-1547592180-85f173990554?auto=format&fit=crop&w=240&q=80" alt="Plato de comida">
+                                <div><small>SEGUNDO 1</small><strong>Plato del día 1</strong><b>15 Bs</b></div>
+                            </article>
+                            <article class="food-option">
+                                <img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&w=240&q=80" alt="Plato de comida">
+                                <div><small>SEGUNDO 2</small><strong>Plato del día 2</strong><b>15 Bs</b></div>
+                            </article>
+                            <article class="food-option">
+                                <img src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?auto=format&fit=crop&w=240&q=80" alt="Plato de comida">
+                                <div><small>SEGUNDO 3</small><strong>Plato del día 3</strong><b>15 Bs</b></div>
+                            </article>
+                            <article class="food-option">
+                                <img src="https://images.unsplash.com/photo-1547592180-85f173990554?auto=format&fit=crop&w=240&q=80" alt="Sopa">
+                                <div><small>SOPA</small><strong>Sopa del día</strong><b>7 Bs</b></div>
+                            </article>
+                        </div>
+                    </article>
+
+                </div>
+
+                <p class="info-note">Las imágenes son ilustrativas. Los nombres de los platos se actualizarán cuando se confirme el menú diario.</p>
+            </div>
+        </section>
+
+        <section class="page-section" id="especiales">
+            <div class="container page-content">
+                <div class="section-heading">
+                    <div>
+                        <span class="section-kicker">SÁBADOS, DOMINGOS Y FERIADOS</span>
+                        <h2>Menú de <em>especiales</em></h2>
+                    </div>
+                    <p>Conoce nuestras opciones y sus precios.</p>
+                </div>
+
+                <div class="special-grid">
+                    <article class="special-card">
+                        <img src="https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=600&q=85" alt="Chicharrón">
+                        <h3>Chicharrón</h3><strong>40 Bs</strong>
+                    </article>
+                    <article class="special-card">
+                        <img src="https://images.unsplash.com/photo-1547592180-85f173990554?auto=format&fit=crop&w=600&q=85" alt="Charquekan ilustrativo">
+                        <h3>Charquekan</h3><strong>40 Bs</strong>
+                    </article>
+                    <article class="special-card">
+                        <img src="https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=600&q=85" alt="Lechón ilustrativo">
+                        <h3>Lechón</h3><strong>40 Bs</strong>
+                    </article>
+                    <article class="special-card">
+                        <img src="https://images.unsplash.com/photo-1547592180-85f173990554?auto=format&fit=crop&w=600&q=85" alt="Fricasé ilustrativo">
+                        <h3>Fricasé</h3><strong>40 Bs</strong>
+                    </article>
+                    <article class="special-card">
+                        <img src="https://images.unsplash.com/photo-1547592180-85f173990554?auto=format&fit=crop&w=600&q=85" alt="Chairo ilustrativo">
+                        <h3>Chairo</h3><strong>20 Bs</strong>
+                    </article>
+                    <article class="special-card">
+                        <img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&w=600&q=85" alt="Sajta ilustrativa">
+                        <h3>Sajta</h3><strong>20 Bs</strong>
+                    </article>
+                    <article class="special-card">
+                        <img src="https://images.unsplash.com/photo-1532550907401-a500c9a57435?auto=format&fit=crop&w=600&q=85" alt="Pollo al horno">
+                        <h3>Pollo al horno</h3><strong>35 Bs</strong>
+                    </article>
+                </div>
+
+                <p class="info-note">Las fotografías son ilustrativas y pueden reemplazarse por imágenes reales de los platos.</p>
+            </div>
+        </section>
+
+        <section class="page-section" id="pedidos">
+            <div class="container page-content">
+                <div class="section-heading">
+                    <div>
+                        <span class="section-kicker">ARMA TU PEDIDO</span>
+                        <h2>Haz tu <em>pedido</em></h2>
+                    </div>
+                    <p>Selecciona los platos y cantidades que deseas.</p>
+                </div>
+
+                <div class="order-layout">
+                    <div class="order-card">
+                        <h3>Almuerzo de lunes a jueves</h3>
+                        <p>Un almuerzo completo incluye una sopa y un segundo.</p>
+
+                        <label for="lunchDay">Día</label>
+                        <select id="lunchDay">
+                            <option>Lunes</option>
+                            <option>Martes</option>
+                            <option>Miércoles</option>
+                            <option>Jueves</option>
+                        </select>
+
+                        <label for="lunchSecond">Segundo que deseas</label>
+                        <select id="lunchSecond">
+                            <option>Plato del día 1</option>
+                            <option>Plato del día 2</option>
+                            <option>Plato del día 3</option>
+                        </select>
+
+                        <label for="lunchQuantity">Cantidad de almuerzos completos</label>
+                        <input type="number" id="lunchQuantity" min="1" max="20" value="1">
+
+                        <div class="price-line">
+                            <span>Precio por almuerzo completo</span>
+                            <strong>20 Bs</strong>
+                        </div>
+
+                        <button class="button button-primary" id="addLunch">Agregar almuerzo</button>
+
+                        <hr>
+
+                        <h3>Pedido por separado</h3>
+                        <p>Puedes pedir solamente sopa o segundo.</p>
+
+                        <label for="separateDay">Día</label>
+                        <select id="separateDay">
+                            <option>Lunes</option>
+                            <option>Martes</option>
+                            <option>Miércoles</option>
+                            <option>Jueves</option>
+                        </select>
+
+                        <label for="separateType">Tipo de plato</label>
+                        <select id="separateType">
+                            <option value="segundo">Segundo - 15 Bs</option>
+                            <option value="sopa">Sopa - 7 Bs</option>
+                        </select>
+
+                        <label for="separateDish">Plato</label>
+                        <select id="separateDish">
+                            <option>Plato del día 1</option>
+                            <option>Plato del día 2</option>
+                            <option>Plato del día 3</option>
+                        </select>
+
+                        <label for="separateQuantity">Cantidad</label>
+                        <input type="number" id="separateQuantity" min="1" max="20" value="1">
+
+                        <button class="button button-primary" id="addSeparate">Agregar al pedido</button>
+                    </div>
+
+                    <div class="order-card">
+                        <h3>Platos especiales</h3>
+                        <p>Disponibles sábados, domingos y feriados.</p>
+
+                        <label for="specialDish">Selecciona un plato</label>
+                        <select id="specialDish">
+                            <option value="Chicharrón" data-price="40">Chicharrón - 40 Bs</option>
+                            <option value="Charquekan" data-price="40">Charquekan - 40 Bs</option>
+                            <option value="Lechón" data-price="40">Lechón - 40 Bs</option>
+                            <option value="Fricasé" data-price="40">Fricasé - 40 Bs</option>
+                            <option value="Chairo" data-price="20">Chairo - 20 Bs</option>
+                            <option value="Sajta" data-price="20">Sajta - 20 Bs</option>
+                            <option value="Pollo al horno" data-price="35">Pollo al horno - 35 Bs</option>
+                        </select>
+
+                        <label for="specialQuantity">Cantidad</label>
+                        <input type="number" id="specialQuantity" min="1" max="20" value="1">
+
+                        <button class="button button-primary" id="addSpecial">Agregar plato especial</button>
+
+                        <div class="order-help">
+                            <strong>¿Ya elegiste?</strong>
+                            <p>Abre “Mi pedido” para revisar los platos, cantidades y total antes de enviarlo por WhatsApp.</p>
+                            <button class="button button-outline" id="openCartFromOrders">Revisar mi pedido</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="page-section" id="ubicacion">
+            <div class="container centered-page">
+                <div class="location-symbol">⌖</div>
+                <span class="section-kicker">VEN A VISITARNOS</span>
+                <h2>Estamos cerca <em>de ti.</em></h2>
+                <p class="page-description">Encuéntranos en esta ubicación. Puedes abrir el mapa para obtener indicaciones.</p>
+
+                <div class="map-frame">
+                    <iframe title="Mapa de El Rincón de Chamaca" src="https://www.google.com/maps?q=-16.48315,-68.12166&z=16&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+                    </iframe>
+                </div>
+
+                <a class="button button-primary map-link" href="https://www.google.com/maps/dir/?api=1&destination=-16.48315,-68.12166" target="_blank" rel="noopener">Cómo llegar con Google Maps →</a>
+                <p class="coordinates">Coordenadas: -16.48315, -68.12166</p>
+            </div>
+        </section>
+
+        <section class="page-section" id="contacto">
+            <div class="container centered-page">
+                <span class="section-kicker">ESTAMOS PARA ATENDERTE</span>
+                <h2>Contáctanos</h2>
+                <p class="page-description">Comunícate con nosotros para realizar consultas o pedidos.</p>
+
+                <div class="contact-grid">
+                    <article class="contact-card">
+                        <span>✆</span>
+                        <h3>WhatsApp</h3>
+                        <p>78826105</p>
+                        <a href="https://wa.me/59178826105" target="_blank" rel="noopener">Escribir por WhatsApp</a>
+                    </article>
+
+                    <article class="contact-card">
+                        <span>⌖</span>
+                        <h3>Ubicación</h3>
+                        <p>Consulta el mapa para encontrarnos.</p>
+                        <button class="text-button" data-view="ubicacion">Ver ubicación</button>
+                    </article>
+
+                    <article class="contact-card">
+                        <span>◷</span>
+                        <h3>Atención</h3>
+                        <p>Lunes a jueves y fines de semana y feriados.</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container footer-content">
+            <span>© <span id="year"></span> El Rincón de Chamaca</span>
+            <span>Un buen plato, un buen momento.</span>
+        </div>
+    </footer>
+
+    <div class="cart-overlay" id="cartOverlay"></div>
+
+    <aside class="cart-panel" id="cartPanel">
+        <div class="cart-header">
+            <div>
+                <span class="section-kicker">EL RINCÓN DE CHAMACA</span>
+                <h2>Mi pedido</h2>
+            </div>
+            <button class="close-button" id="cartClose" aria-label="Cerrar">×</button>
+        </div>
+
+        <div class="cart-items" id="cartItems">
+            <p class="empty-cart">Todavía no agregaste platos.</p>
+        </div>
+
+        <div class="cart-footer">
+            <div class="cart-total-row">
+                <span>Total</span>
+                <strong id="cartTotal">0 Bs</strong>
+            </div>
+            <button class="button button-primary checkout-button" id="checkoutButton">Continuar con mi pedido →</button>
+        </div>
+    </aside>
+
+    <div class="modal-backdrop" id="orderModal">
+        <form class="order-modal" id="orderForm" novalidate>
+            <button type="button" class="close-button modal-close" id="modalClose" aria-label="Cerrar">×</button>
+            <span class="section-kicker">CASI LISTO</span>
+            <h2>Completa tus <em>datos</em></h2>
+            <p class="modal-description">Déjanos tus datos para preparar el mensaje de tu pedido.</p>
+
+            <label for="customerName">Nombre completo</label>
+            <input type="text" id="customerName" placeholder="Escribe tu nombre">
+            <small class="field-error" id="nameError"></small>
+
+            <label for="customerPhone">Tu número de celular</label>
+            <input type="tel" id="customerPhone" placeholder="Ej. 70000000">
+            <small class="field-error" id="phoneError"></small>
+
+            <label for="customerNote">Detalle adicional (opcional)</label>
+            <textarea id="customerNote" rows="3" placeholder="Alguna indicación para tu pedido..."></textarea>
+
+            <button type="submit" class="button button-primary submit-order">Enviar pedido por WhatsApp →</button>
+            <p class="form-message" id="formMessage"></p>
+        </form>
+    </div>
+
+    <div class="toast" id="toast"></div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
