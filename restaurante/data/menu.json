@@ -1,0 +1,135 @@
+{
+  "negocio": {
+    "nombre": "El Rincón de Chamaca",
+    "whatsapp": "59178826105"
+  },
+  "moneda": "Bs",
+  "precios": {
+    "almuerzoCompleto": 20,
+    "segundo": 15,
+    "sopa": 7
+  },
+  "semana": [
+    {
+      "dia": "Lunes",
+      "sopa": {
+        "nombre": "Sopa de arroz con maní",
+        "imagen": "imagenes/lunes/sopa.jpg"
+      },
+      "segundos": [
+        {
+          "nombre": "Milanesa de pollo",
+          "imagen": "imagenes/lunes/s1.jpg"
+        },
+        {
+          "nombre": "Saice",
+          "imagen": "imagenes/lunes/s2.jpg"
+        },
+        {
+          "nombre": "Guiso de res",
+          "imagen": "imagenes/lunes/s3.webp"
+        }
+      ]
+    },
+    {
+      "dia": "Martes",
+      "sopa": {
+        "nombre": "Sopa de fideo",
+        "imagen": "imagenes/martes/s1.jpg"
+      },
+      "segundos": [
+        {
+          "nombre": "Ají de lenteja",
+          "imagen": "imagenes/martes/s2.jpg"
+        },
+        {
+          "nombre": "Pollo al horno",
+          "imagen": "imagenes/martes/s3.jpg"
+        },
+        {
+          "nombre": "Fritanga",
+          "imagen": "imagenes/martes/s4.jpg"
+        }
+      ]
+    },
+    {
+      "dia": "Miércoles",
+      "sopa": {
+        "nombre": "Chairo",
+        "imagen": "imagenes/miercoles/s1.jpg"
+      },
+      "segundos": [
+        {
+          "nombre": "Revuelto de carne",
+          "imagen": "imagenes/miercoles/s2.webp"
+        },
+        {
+          "nombre": "Chuleta de chancho",
+          "imagen": "imagenes/miercoles/s3.png"
+        },
+        {
+          "nombre": "Ají de panza",
+          "imagen": "imagenes/miercoles/s4.jpg"
+        }
+      ]
+    },
+    {
+      "dia": "Jueves",
+      "sopa": {
+        "nombre": "Sopa de maní con fideo",
+        "imagen": "imagenes/jueves/s1.jpg"
+      },
+      "segundos": [
+        {
+          "nombre": "Trucha",
+          "imagen": "imagenes/jueves/s2.jpg"
+        },
+        {
+          "nombre": "Falso conejo",
+          "imagen": "imagenes/jueves/s3.jpg"
+        },
+        {
+          "nombre": "Albóndiga",
+          "imagen": "imagenes/jueves/s4.jpg"
+        }
+      ]
+    }
+  ],
+  "especiales": [
+    {
+      "nombre": "Chicharrón",
+      "precio": 40,
+      "imagen": "imagenes/fin%20de%20semana/chicharron.jpg"
+    },
+    {
+      "nombre": "Charquekan",
+      "precio": 40,
+      "imagen": "imagenes/fin%20de%20semana/charquekan.jpg"
+    },
+    {
+      "nombre": "Lechón",
+      "precio": 40,
+      "imagen": "imagenes/fin%20de%20semana/lechon.jpg"
+    },
+    {
+      "nombre": "Fricasé",
+      "precio": 40,
+      "imagen": "imagenes/fin%20de%20semana/fricase.jpg"
+    },
+    {
+      "nombre": "Chairo",
+      "precio": 20,
+      "imagen": "imagenes/fin%20de%20semana/chairo.webp"
+    },
+    {
+      "nombre": "Sajta",
+      "precio": 20,
+      "imagen": "imagenes/fin%20de%20semana/sajta.jpg"
+    },
+    {
+      "nombre": "Pollo al horno",
+      "precio": 35,
+      "imagen": "imagenes/fin%20de%20semana/pollo%20al%20horno.webp"
+    }
+  ]
+}
