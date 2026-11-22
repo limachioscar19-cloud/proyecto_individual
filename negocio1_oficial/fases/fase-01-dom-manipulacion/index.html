@@ -1,0 +1,233 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fase 01 · DOM y Manipulación de Elementos | El Rincón de Chamaca</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;600;700;800&family=Playfair+Display:wght@700;800&display=swap"
+        rel="stylesheet">
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        :root {
+            --green: #638b3e;
+            --green-dark: #3f612b;
+            --green-soft: #e7eddd;
+            --orange: #e98232;
+            --cream: #ead6ad;
+            --cream-light: #f7f1e5;
+            --paper: #eee0c4;
+            --ink: #283124;
+            --muted: #73796c;
+            --line: #e2d5bd;
+            --card: #ffffff;
+            --shadow: 0 15px 40px rgba(55, 65, 40, .08);
+        }
+
+        body.dark-mode {
+            --green: #91b66a;
+            --green-dark: #b5d393;
+            --green-soft: #293625;
+            --orange: #f29a51;
+            --cream: #5b4c34;
+            --cream-light: #252a22;
+            --paper: #1d241c;
+            --ink: #f1f0e8;
+            --muted: #b5b9aa;
+            --line: #394234;
+            --card: #252e23;
+        }
+
+        body {
+            min-height: 100dvh;
+            font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: var(--paper);
+            color: var(--ink);
+            line-height: 1.6;
+            padding: 20px;
+            transition: background .25s, color .25s;
+        }
+
+        .phase-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: var(--card);
+            border: 1px solid var(--line);
+            border-radius: 16px;
+            padding: 28px;
+            box-shadow: var(--shadow);
+        }
+
+        header.phase-header {
+            border-bottom: 2px solid var(--green);
+            padding-bottom: 16px;
+            margin-bottom: 24px;
+        }
+
+        .phase-tag {
+            display: inline-block;
+            padding: 4px 10px;
+            background: var(--green-soft);
+            color: var(--green-dark);
+            font-size: 11px;
+            font-weight: 800;
+            border-radius: 12px;
+            letter-spacing: 1px;
+            margin-bottom: 8px;
+            text-transform: uppercase;
+        }
+
+        h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 26px;
+            color: var(--green-dark);
+        }
+
+        .desc {
+            color: var(--muted);
+            font-size: 14px;
+            margin-top: 6px;
+        }
+
+        .demo-box {
+            background: var(--paper);
+            border: 1px solid var(--line);
+            border-radius: 12px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+
+        button.btn-chamaca {
+            padding: 10px 18px;
+            min-height: 44px;
+            min-width: 44px;
+            border: 0;
+            border-radius: 25px;
+            background: var(--green);
+            color: white;
+            font-weight: 700;
+            font-size: 13px;
+            cursor: pointer;
+            transition: .2s;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        button.btn-chamaca:hover {
+            background: var(--green-dark);
+            transform: translateY(-2px);
+        }
+
+        input,
+        select,
+        textarea {
+            width: 100%;
+            padding: 10px 14px;
+            min-height: 44px;
+            border: 1px solid var(--line);
+            border-radius: 8px;
+            background: var(--card);
+            color: var(--ink);
+            margin-top: 6px;
+            font-family: inherit;
+            font-size: 14px;
+        }
+
+        label {
+            font-weight: 700;
+            font-size: 13px;
+            display: block;
+            margin-top: 12px;
+        }
+
+        .code-preview {
+            background: #1e241c;
+            color: #d6e2cf;
+            padding: 16px;
+            border-radius: 8px;
+            font-family: monospace;
+            font-size: 12px;
+            overflow-x: auto;
+            margin-top: 20px;
+            line-height: 1.5;
+        }
+    </style>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+</head>
+
+<body>
+    <div class="phase-container">
+        <header class="phase-header">
+            <span class="phase-tag">Fase 01 / 18</span>
+            <h1>DOM y Manipulación de Elementos</h1>
+            <p class="desc">Renderizado dinámico de tarjetas de platos mediante creación e inserción estructurada de
+                nodos en el DOM.</p>
+            <p class="desc" style="color:var(--green); font-weight:700; margin-top:4px;">📍 Aplicación: Se aplica en la
+                visualización del menú semanal (lunes a jueves) y platos especiales del restaurante.</p>
+        </header>
+
+        <section class="demo-box">
+            <h3>Menú de Almuerzos - Creación Dinámica</h3>
+            <p class="desc">Haz clic en el botón para renderizar los platos usando el DOM:</p>
+            <div style="margin: 15px 0;">
+                <button class="btn-chamaca" id="btnCargarPlatos">Renderizar Platos en DOM</button>
+            </div>
+            <div id="listaPlatos"
+                style="display:grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px;"></div>
+        </section>
+
+        <div class="code-preview">
+            <strong>Código Implementado en esta Fase:</strong>
+            <pre><code>const platos = [
+            { nombre: "Milanesa de pollo", precio: 20, tipo: "Segundo" },
+            { nombre: "Saice tarijeño", precio: 20, tipo: "Segundo" },
+            { nombre: "Sopa de maní", precio: 7, tipo: "Sopa" }
+        ];
+        document.getElementById('btnCargarPlatos').addEventListener('click', () => {
+            const cont = document.getElementById('listaPlatos');
+            cont.innerHTML = '';
+            platos.forEach(p => {
+                const card = document.createElement('div');
+                card.style.cssText = 'background:var(--card); padding:12px; border-radius:8px; border:1px solid var(--line);';
+                card.innerHTML = '<small style="color:var(--green); font-weight:800;">' + p.tipo + '</small><h4 style="margin:4px 0;">' + p.nombre + '</h4><strong>' + p.precio + ' Bs</strong>';
+                cont.appendChild(card);
+            });
+        });</code></pre>
+        </div>
+
+        <footer
+            style="margin-top:24px; display:flex; justify-content:space-between; align-items:center; border-top:1px solid var(--line); padding-top:14px; font-size:12px; color:var(--muted);">
+            <span>© 2026 El Rincón de Chamaca</span>
+            <a href="../../proyecto/index.html" style="color:var(--green); font-weight:700; text-decoration:none;">Ir al
+                Proyecto Completo →</a>
+        </footer>
+    </div>
+
+    <script>
+        const platos = [
+            { nombre: "Milanesa de pollo", precio: 20, tipo: "Segundo" },
+            { nombre: "Saice tarijeño", precio: 20, tipo: "Segundo" },
+            { nombre: "Sopa de maní", precio: 7, tipo: "Sopa" }
+        ];
+        document.getElementById('btnCargarPlatos').addEventListener('click', () => {
+            const cont = document.getElementById('listaPlatos');
+            cont.innerHTML = '';
+            platos.forEach(p => {
+                const card = document.createElement('div');
+                card.style.cssText = 'background:var(--card); padding:12px; border-radius:8px; border:1px solid var(--line);';
+                card.innerHTML = '<small style="color:var(--green); font-weight:800;">' + p.tipo + '</small><h4 style="margin:4px 0;">' + p.nombre + '</h4><strong>' + p.precio + ' Bs</strong>';
+                cont.appendChild(card);
+            });
+        });
+    </script>
+</body>
+
+</html>

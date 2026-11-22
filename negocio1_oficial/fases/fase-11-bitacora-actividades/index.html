@@ -1,0 +1,228 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fase 11 · Bitácora de Auditoría con Fecha y Hora | El Rincón de Chamaca</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;600;700;800&family=Playfair+Display:wght@700;800&display=swap"
+        rel="stylesheet">
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        :root {
+            --green: #638b3e;
+            --green-dark: #3f612b;
+            --green-soft: #e7eddd;
+            --orange: #e98232;
+            --cream: #ead6ad;
+            --cream-light: #f7f1e5;
+            --paper: #eee0c4;
+            --ink: #283124;
+            --muted: #73796c;
+            --line: #e2d5bd;
+            --card: #ffffff;
+            --shadow: 0 15px 40px rgba(55, 65, 40, .08);
+        }
+
+        body.dark-mode {
+            --green: #91b66a;
+            --green-dark: #b5d393;
+            --green-soft: #293625;
+            --orange: #f29a51;
+            --cream: #5b4c34;
+            --cream-light: #252a22;
+            --paper: #1d241c;
+            --ink: #f1f0e8;
+            --muted: #b5b9aa;
+            --line: #394234;
+            --card: #252e23;
+        }
+
+        body {
+            min-height: 100dvh;
+            font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: var(--paper);
+            color: var(--ink);
+            line-height: 1.6;
+            padding: 20px;
+            transition: background .25s, color .25s;
+        }
+
+        .phase-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: var(--card);
+            border: 1px solid var(--line);
+            border-radius: 16px;
+            padding: 28px;
+            box-shadow: var(--shadow);
+        }
+
+        header.phase-header {
+            border-bottom: 2px solid var(--green);
+            padding-bottom: 16px;
+            margin-bottom: 24px;
+        }
+
+        .phase-tag {
+            display: inline-block;
+            padding: 4px 10px;
+            background: var(--green-soft);
+            color: var(--green-dark);
+            font-size: 11px;
+            font-weight: 800;
+            border-radius: 12px;
+            letter-spacing: 1px;
+            margin-bottom: 8px;
+            text-transform: uppercase;
+        }
+
+        h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 26px;
+            color: var(--green-dark);
+        }
+
+        .desc {
+            color: var(--muted);
+            font-size: 14px;
+            margin-top: 6px;
+        }
+
+        .demo-box {
+            background: var(--paper);
+            border: 1px solid var(--line);
+            border-radius: 12px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+
+        button.btn-chamaca {
+            padding: 10px 18px;
+            min-height: 44px;
+            min-width: 44px;
+            border: 0;
+            border-radius: 25px;
+            background: var(--green);
+            color: white;
+            font-weight: 700;
+            font-size: 13px;
+            cursor: pointer;
+            transition: .2s;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        button.btn-chamaca:hover {
+            background: var(--green-dark);
+            transform: translateY(-2px);
+        }
+
+        input,
+        select,
+        textarea {
+            width: 100%;
+            padding: 10px 14px;
+            min-height: 44px;
+            border: 1px solid var(--line);
+            border-radius: 8px;
+            background: var(--card);
+            color: var(--ink);
+            margin-top: 6px;
+            font-family: inherit;
+            font-size: 14px;
+        }
+
+        label {
+            font-weight: 700;
+            font-size: 13px;
+            display: block;
+            margin-top: 12px;
+        }
+
+        .code-preview {
+            background: #1e241c;
+            color: #d6e2cf;
+            padding: 16px;
+            border-radius: 8px;
+            font-family: monospace;
+            font-size: 12px;
+            overflow-x: auto;
+            margin-top: 20px;
+            line-height: 1.5;
+        }
+    </style>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+</head>
+
+<body>
+    <div class="phase-container">
+        <header class="phase-header">
+            <span class="phase-tag">Fase 11 / 18</span>
+            <h1>Bitácora de Auditoría con Fecha y Hora</h1>
+            <p class="desc">Registro persistente de operaciones clave con actor, acción y fecha local 'es-BO' en
+                localStorage.</p>
+            <p class="desc" style="color:var(--green); font-weight:700; margin-top:4px;">📍 Aplicación: Se aplica en el
+                panel administrativo del gerente para rastrear cambios de precios y pedidos.</p>
+        </header>
+
+        <section class="demo-box">
+            <div style="margin-bottom:14px;">
+                <button class="btn-chamaca" id="btnLogPedido">Registrar Evento de Pedido</button>
+                <button class="btn-chamaca" id="btnLogPrecio">Registrar Cambio de Precio</button>
+            </div>
+            <h4>Historial de Auditoría:</h4>
+            <div id="listaBitacora" style="max-height:180px; overflow-y:auto; margin-top:8px;"></div>
+        </section>
+
+        <div class="code-preview">
+            <strong>Código Implementado en esta Fase:</strong>
+            <pre><code>let logs = JSON.parse(localStorage.getItem('fase_logs') || '[]');
+        function renderLogs() {
+            const c = document.getElementById('listaBitacora');
+            c.innerHTML = logs.map(l =&gt; '&lt;div style="padding:6px; border-bottom:1px solid var(--line); font-size:12px;"&gt;&lt;b&gt;' + l.actor + '&lt;/b&gt;: ' + l.accion + ' &lt;small style="color:var(--muted);"&gt;(' + l.fecha + ')&lt;/small&gt;&lt;/div&gt;').join('') || '&lt;p&gt;Sin eventos.&lt;/p&gt;';
+        }
+        function addLog(accion) {
+            logs.unshift({ actor: 'Gerente Admin', accion, fecha: new Date().toLocaleString('es-BO') });
+            localStorage.setItem('fase_logs', JSON.stringify(logs.slice(0, 10)));
+            renderLogs();
+        }
+        document.getElementById('btnLogPedido').addEventListener('click', () =&gt; addLog('Aprobó comanda #104'));
+        document.getElementById('btnLogPrecio').addEventListener('click', () =&gt; addLog('Modificó precio de almuerzo a 20 Bs'));
+        renderLogs();</code></pre>
+        </div>
+
+        <footer
+            style="margin-top:24px; display:flex; justify-content:space-between; align-items:center; border-top:1px solid var(--line); padding-top:14px; font-size:12px; color:var(--muted);">
+            <span>© 2026 El Rincón de Chamaca</span>
+            <a href="../../proyecto/index.html" style="color:var(--green); font-weight:700; text-decoration:none;">Ir al
+                Proyecto Completo →</a>
+        </footer>
+    </div>
+
+    <script>
+        let logs = JSON.parse(localStorage.getItem('fase_logs') || '[]');
+        function renderLogs() {
+            const c = document.getElementById('listaBitacora');
+            c.innerHTML = logs.map(l => '<div style="padding:6px; border-bottom:1px solid var(--line); font-size:12px;"><b>' + l.actor + '</b>: ' + l.accion + ' <small style="color:var(--muted);">(' + l.fecha + ')</small></div>').join('') || '<p>Sin eventos.</p>';
+        }
+        function addLog(accion) {
+            logs.unshift({ actor: 'Gerente Admin', accion, fecha: new Date().toLocaleString('es-BO') });
+            localStorage.setItem('fase_logs', JSON.stringify(logs.slice(0, 10)));
+            renderLogs();
+        }
+        document.getElementById('btnLogPedido').addEventListener('click', () => addLog('Aprobó comanda #104'));
+        document.getElementById('btnLogPrecio').addEventListener('click', () => addLog('Modificó precio de almuerzo a 20 Bs'));
+        renderLogs();
+    </script>
+</body>
+
+</html>

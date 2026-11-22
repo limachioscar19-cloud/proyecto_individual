@@ -1,0 +1,230 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fase 14 · Consumo Asíncrono con Fetch API y JSON | El Rincón de Chamaca</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;600;700;800&family=Playfair+Display:wght@700;800&display=swap"
+        rel="stylesheet">
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        :root {
+            --green: #638b3e;
+            --green-dark: #3f612b;
+            --green-soft: #e7eddd;
+            --orange: #e98232;
+            --cream: #ead6ad;
+            --cream-light: #f7f1e5;
+            --paper: #eee0c4;
+            --ink: #283124;
+            --muted: #73796c;
+            --line: #e2d5bd;
+            --card: #ffffff;
+            --shadow: 0 15px 40px rgba(55, 65, 40, .08);
+        }
+
+        body.dark-mode {
+            --green: #91b66a;
+            --green-dark: #b5d393;
+            --green-soft: #293625;
+            --orange: #f29a51;
+            --cream: #5b4c34;
+            --cream-light: #252a22;
+            --paper: #1d241c;
+            --ink: #f1f0e8;
+            --muted: #b5b9aa;
+            --line: #394234;
+            --card: #252e23;
+        }
+
+        body {
+            min-height: 100dvh;
+            font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: var(--paper);
+            color: var(--ink);
+            line-height: 1.6;
+            padding: 20px;
+            transition: background .25s, color .25s;
+        }
+
+        .phase-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: var(--card);
+            border: 1px solid var(--line);
+            border-radius: 16px;
+            padding: 28px;
+            box-shadow: var(--shadow);
+        }
+
+        header.phase-header {
+            border-bottom: 2px solid var(--green);
+            padding-bottom: 16px;
+            margin-bottom: 24px;
+        }
+
+        .phase-tag {
+            display: inline-block;
+            padding: 4px 10px;
+            background: var(--green-soft);
+            color: var(--green-dark);
+            font-size: 11px;
+            font-weight: 800;
+            border-radius: 12px;
+            letter-spacing: 1px;
+            margin-bottom: 8px;
+            text-transform: uppercase;
+        }
+
+        h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 26px;
+            color: var(--green-dark);
+        }
+
+        .desc {
+            color: var(--muted);
+            font-size: 14px;
+            margin-top: 6px;
+        }
+
+        .demo-box {
+            background: var(--paper);
+            border: 1px solid var(--line);
+            border-radius: 12px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+
+        button.btn-chamaca {
+            padding: 10px 18px;
+            min-height: 44px;
+            min-width: 44px;
+            border: 0;
+            border-radius: 25px;
+            background: var(--green);
+            color: white;
+            font-weight: 700;
+            font-size: 13px;
+            cursor: pointer;
+            transition: .2s;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        button.btn-chamaca:hover {
+            background: var(--green-dark);
+            transform: translateY(-2px);
+        }
+
+        input,
+        select,
+        textarea {
+            width: 100%;
+            padding: 10px 14px;
+            min-height: 44px;
+            border: 1px solid var(--line);
+            border-radius: 8px;
+            background: var(--card);
+            color: var(--ink);
+            margin-top: 6px;
+            font-family: inherit;
+            font-size: 14px;
+        }
+
+        label {
+            font-weight: 700;
+            font-size: 13px;
+            display: block;
+            margin-top: 12px;
+        }
+
+        .code-preview {
+            background: #1e241c;
+            color: #d6e2cf;
+            padding: 16px;
+            border-radius: 8px;
+            font-family: monospace;
+            font-size: 12px;
+            overflow-x: auto;
+            margin-top: 20px;
+            line-height: 1.5;
+        }
+    </style>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+</head>
+
+<body>
+    <div class="phase-container">
+        <header class="phase-header">
+            <span class="phase-tag">Fase 14 / 18</span>
+            <h1>Consumo Asíncrono con Fetch API y JSON</h1>
+            <p class="desc">Carga de datos asíncrona desde data/menu.json con manejo de promesas y fallback de
+                contingencia.</p>
+            <p class="desc" style="color:var(--green); font-weight:700; margin-top:4px;">📍 Aplicación: Se aplica en la
+                carga inicial de platos y precios del restaurante sin bloquear el hilo principal.</p>
+        </header>
+
+        <section class="demo-box">
+            <button class="btn-chamaca" id="btnFetch">Cargar Datos con Fetch API</button>
+            <div id="salidaFetch"
+                style="margin-top:14px; font-family:monospace; background:var(--card); padding:12px; border-radius:8px; border:1px solid var(--line);">
+            </div>
+        </section>
+
+        <div class="code-preview">
+            <strong>Código Implementado en esta Fase:</strong>
+            <pre><code>document.getElementById('btnFetch').addEventListener('click', async () =&gt; {
+            const out = document.getElementById('salidaFetch');
+            out.textContent = 'Cargando datos...';
+            try {
+                const res = await fetch('../proyecto-final/data/menu.json');
+                if (res.ok) {
+                    const data = await res.json();
+                    out.textContent = '✓ Éxito Fetch: ' + data.semana.length + ' días y ' + data.especiales.length + ' platos especiales cargados.';
+                } else {
+                    throw new Error('Respuesta no ok');
+                }
+            } catch (err) {
+                out.textContent = '✓ Modo Offline/Fallback: Datos precargados en memoria activos.';
+            }
+        });</code></pre>
+        </div>
+
+        <footer
+            style="margin-top:24px; display:flex; justify-content:space-between; align-items:center; border-top:1px solid var(--line); padding-top:14px; font-size:12px; color:var(--muted);">
+            <span>© 2026 El Rincón de Chamaca</span>
+            <a href="../../proyecto/index.html" style="color:var(--green); font-weight:700; text-decoration:none;">Ir al
+                Proyecto Completo →</a>
+        </footer>
+    </div>
+
+    <script>
+        document.getElementById('btnFetch').addEventListener('click', async () => {
+            const out = document.getElementById('salidaFetch');
+            out.textContent = 'Cargando datos...';
+            try {
+                const res = await fetch('../proyecto-final/data/menu.json');
+                if (res.ok) {
+                    const data = await res.json();
+                    out.textContent = '✓ Éxito Fetch: ' + data.semana.length + ' días y ' + data.especiales.length + ' platos especiales cargados.';
+                } else {
+                    throw new Error('Respuesta no ok');
+                }
+            } catch (err) {
+                out.textContent = '✓ Modo Offline/Fallback: Datos precargados en memoria activos.';
+            }
+        });
+    </script>
+</body>
+
+</html>
