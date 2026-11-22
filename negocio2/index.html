@@ -1,0 +1,310 @@
+<!doctype html>
+<html lang="es">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#102238">
+  <meta name="description" content="ARKON Ingeniería: diseño, consultoría y gestión técnica de proyectos.">
+  <title>ARKON Ingeniería | Ingeniería que transforma</title>
+  <link rel="icon" href="imagenes/favicon.svg" type="image/svg+xml">
+  <link rel="manifest" href="manifest.json">
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+  <a class="skip" href="#main">Saltar al contenido</a>
+
+  <header class="topbar">
+    <a class="brand" href="#inicio">
+      <span class="brand-symbol">A<span>+</span></span>
+      <span>ARKON<small>INGENIERÍA &amp; PROYECTOS</small></span>
+    </a>
+    <nav id="nav" aria-label="Principal">
+      <a href="#inicio">Inicio</a>
+      <a href="#servicios">Servicios</a>
+      <a href="#proyectos">Proyectos</a>
+      <a href="#nosotros">Nosotros</a>
+      <a href="#contacto">Contacto</a>
+    </nav>
+    <div class="tools">
+      <button class="icon-btn" id="themeBtn" title="Modo claro u oscuro" aria-label="Cambiar tema">◐</button>
+      <button class="icon-btn" id="contrastBtn" title="Alto contraste" aria-label="Activar alto contraste">◒</button>
+      <button class="login-btn" id="loginOpen">Ingresar <span>↗</span></button>
+      <button class="menu-btn" id="menuBtn" aria-label="Abrir menú" aria-expanded="false">☰</button>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="site-section hero" id="inicio">
+      <div class="hero-photo"></div>
+      <div class="hero-shade"></div>
+      <div class="container hero-inner">
+        <div class="hero-copy">
+          <p class="kicker"><i></i> INGENIERÍA · DISEÑO · CONSTRUCCIÓN</p>
+          <h1>Construimos<br><em>ideas que perduran.</em></h1>
+          <p class="lead">Soluciones técnicas, planificación inteligente y acompañamiento profesional para convertir
+            cada proyecto en una realidad bien construida.</p>
+          <div class="actions">
+            <a class="btn primary" href="#contacto">Cuéntanos tu proyecto <b>↗</b></a>
+            <a class="btn ghost" href="#servicios">Explorar servicios</a>
+          </div>
+          <div class="hero-metrics">
+            <div><b>01</b><span>Diseño con<br>propósito</span></div>
+            <div><b>02</b><span>Precisión<br>técnica</span></div>
+            <div><b>03</b><span>Gestión<br>transparente</span></div>
+          </div>
+        </div>
+        <div class="hero-card">
+          <span class="small-label">ARKON / 001</span>
+          <i class="card-line"></i>
+          <strong>La excelencia<br>empieza en<br>la planificación.</strong>
+          <span class="small-label">INGENIERÍA CON VISIÓN</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="site-section" id="servicios">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <p class="kicker">CAPACIDADES / QUÉ HACEMOS</p>
+            <h2>Ingeniería para <em>cada desafío.</em></h2>
+          </div>
+          <p>Toca cualquier tarjeta para descubrir de qué trata cada servicio, desde la idea inicial hasta el control
+            técnico.</p>
+        </div>
+        <div class="filter-row">
+          <input id="serviceSearch" type="search" placeholder="Buscar un servicio..." aria-label="Buscar servicios">
+          <select id="serviceFilter" aria-label="Filtrar servicios">
+            <option value="all">Todas las áreas</option>
+            <option value="diseño">Diseño</option>
+            <option value="obra">Obra</option>
+            <option value="gestión">Gestión</option>
+          </select>
+        </div>
+        <div class="service-grid" id="serviceGrid"></div>
+        <p class="empty" id="serviceEmpty" hidden>No encontramos servicios con esa búsqueda.</p>
+      </div>
+    </section>
+
+    <section class="site-section alt" id="proyectos">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <p class="kicker">PORTAFOLIO / ÁREAS DE TRABAJO</p>
+            <h2>Ideas que toman <em>forma.</em></h2>
+          </div>
+          <p>Una muestra visual de los ámbitos en los que ARKON puede aportar planificación, criterio técnico y
+            soluciones.</p>
+        </div>
+        <div class="project-grid">
+          <article class="project p1">
+            <div><span>01 / RESIDENCIAL</span>
+              <h3>Espacios para vivir</h3>
+              <p>Diseño y planificación de vivienda</p>
+            </div>
+          </article>
+          <article class="project p2">
+            <div><span>02 / INFRAESTRUCTURA</span>
+              <h3>Construcción con visión</h3>
+              <p>Desarrollo y seguimiento de obra</p>
+            </div>
+          </article>
+          <article class="project p3">
+            <div><span>03 / PLANIFICACIÓN</span>
+              <h3>Precisión desde el inicio</h3>
+              <p>Medición y documentación técnica</p>
+            </div>
+          </article>
+        </div>
+        <p class="disclaimer">Imágenes de referencia. No representan obras ejecutadas ni clientes reales de ARKON.</p>
+      </div>
+    </section>
+
+    <section class="site-section" id="nosotros">
+      <div class="container about">
+        <div class="about-visual">
+          <div class="blueprint">
+            <span>ARKON / PRINCIPIOS</span>
+            <strong>PLANIFICAR.<br>DISEÑAR.<br>CONSTRUIR.</strong>
+            <small>EST. 2026 — INGENIERÍA</small>
+          </div>
+        </div>
+        <div class="about-copy">
+          <p class="kicker">QUIÉNES SOMOS</p>
+          <h2>La confianza también se <em>construye.</em></h2>
+          <p>ARKON INGENIERÍA es una propuesta de consultoría y servicios técnicos enfocada en brindar claridad, orden y
+            acompañamiento en cada etapa de los proyectos.</p>
+          <p>Nuestro enfoque combina planificación responsable, comunicación directa y atención al detalle.</p>
+          <div class="values">
+            <div><b>01</b><span><strong>Claridad</strong><small>Procesos y alcances comprensibles.</small></span></div>
+            <div><b>02</b><span><strong>Compromiso</strong><small>Atención responsable a cada consulta.</small></span>
+            </div>
+            <div><b>03</b><span><strong>Precisión</strong><small>Decisiones con criterio técnico.</small></span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="site-section alt" id="contacto">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <p class="kicker">EMPECEMOS / CONTACTO</p>
+            <h2>Tu próximo proyecto comienza <em>aquí.</em></h2>
+          </div>
+          <p>Cuéntanos qué tienes en mente. Registra una consulta y el equipo podrá darle seguimiento.</p>
+        </div>
+        <div class="contact-grid">
+          <form id="contactForm" class="card form-card" novalidate>
+            <div class="form-top"><b>NUEVA CONSULTA</b><span>* Obligatorio</span></div>
+            <label>Nombre completo *
+              <input name="name" required maxlength="80" minlength="3" autocomplete="name" placeholder="Tu nombre">
+            </label>
+            <label>Correo electrónico *
+              <input name="email" type="email" required maxlength="100" autocomplete="email"
+                placeholder="correo@ejemplo.com">
+            </label>
+            <div class="form-two">
+              <label>Teléfono
+                <input name="phone" type="tel" inputmode="tel" maxlength="20" autocomplete="tel" placeholder="Opcional">
+              </label>
+              <label>Servicio *
+                <select name="service" id="serviceSelect" required></select>
+              </label>
+            </div>
+            <label>Cuéntanos sobre tu proyecto *
+              <textarea name="message" required minlength="20" maxlength="1200" rows="4"
+                placeholder="Describe brevemente lo que necesitas..."></textarea>
+            </label>
+            <p id="formFeedback" class="feedback" aria-live="polite"></p>
+            <button class="btn primary full" type="submit">Enviar consulta <b>↗</b></button>
+            <small class="form-legal">Al continuar se abrirá WhatsApp con tu consulta preparada. Debes pulsar Enviar en
+              WhatsApp. También se guarda una copia en este navegador; para sincronizar dispositivos se necesita un
+              servidor.</small>
+          </form>
+          <aside class="card location-card">
+            <div class="location-copy">
+              <p class="kicker">ENCUÉNTRANOS / LA PAZ</p>
+              <h3>Estamos cerca de tu próximo proyecto.</h3>
+              <p><strong>Avenida Tejada Sorzano</strong><br>La Paz, Bolivia</p>
+              <a class="btn outline" href="https://maps.app.goo.gl/bzsRmMfYFT7kSr8TA" target="_blank"
+                rel="noopener">Abrir en Maps ↗</a>
+            </div>
+            <iframe title="Ubicación de ARKON en Avenida Tejada Sorzano, La Paz" loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+              src="https://www.google.com/maps?q=-16.482885,-68.122446&z=16&output=embed"></iframe>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <section class="panel" id="panel" hidden>
+      <div class="container">
+        <div class="dashboard-head">
+          <div>
+            <p class="kicker">ÁREA PRIVADA / ARKON</p>
+            <h2 id="dashboardTitle">Mi espacio</h2>
+          </div>
+          <div class="user-pill">
+            <span id="userInitial">C</span>
+            <div><b id="userName">Cliente</b><small id="userRole">CLIENTE</small></div>
+            <button id="logoutBtn" class="text-btn">Salir ↗</button>
+          </div>
+        </div>
+
+        <div id="clientPanel">
+          <div class="welcome-card">
+            <div>
+              <span>BIENVENIDO A ARKON</span>
+              <h3>Tu proyecto,<br>en seguimiento.</h3>
+              <p>Desde aquí puedes registrar nuevas consultas y revisar las que hayas enviado desde este navegador.</p>
+              <a class="btn primary" href="#contacto" data-leave-panel>Crear consulta ↗</a>
+            </div>
+            <div class="welcome-art">A<span>+</span></div>
+          </div>
+          <div class="panel-subhead">
+            <h3>Mis consultas</h3><span id="clientTotal">0 registros</span>
+          </div>
+          <div id="clientRequests" class="request-list"></div>
+        </div>
+
+        <div id="managerPanel" hidden>
+          <div class="stats">
+            <article><small>CONSULTAS TOTALES</small><b id="statTotal">0</b><span>Registros locales</span></article>
+            <article><small>PENDIENTES</small><b id="statPending">0</b><span>Por revisar</span></article>
+            <article><small>EN PROCESO</small><b id="statProgress">0</b><span>En seguimiento</span></article>
+            <article><small>FINALIZADAS</small><b id="statDone">0</b><span>Atendidas</span></article>
+          </div>
+          <div class="manager-tools">
+            <input id="requestSearch" type="search" placeholder="Buscar por nombre, correo o servicio">
+            <select id="statusFilter">
+              <option value="all">Todos los estados</option>
+              <option value="Pendiente">Pendiente</option>
+              <option value="En proceso">En proceso</option>
+              <option value="Finalizada">Finalizada</option>
+            </select>
+            <button id="exportBtn" class="btn outline">Exportar CSV ↓</button>
+          </div>
+          <div class="panel-subhead">
+            <h3>Consultas recibidas</h3><span>GESTIÓN DE CLIENTES</span>
+          </div>
+          <div id="managerRequests" class="request-list"></div>
+          <div class="panel-subhead">
+            <h3>Bitácora de actividad</h3><span>REGISTRO DE ACCIONES</span>
+          </div>
+          <div id="activityLog" class="log-list"></div>
+          <div id="logPagination" class="log-pagination" aria-label="Paginación de bitácora"></div>
+          <div class="manager-danger">
+            <div><b>Herramientas de administración local</b><small>Exporta periódicamente los registros. Los datos viven
+                en este navegador.</small></div>
+            <button id="clearDataBtn" class="btn danger">Borrar datos locales</button>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <a class="brand" href="#inicio">
+      <span class="brand-symbol">A<span>+</span></span>
+      <span>ARKON<small>INGENIERÍA &amp; PROYECTOS</small></span>
+    </a>
+    <p>Ingeniería que transforma ideas en soluciones.</p>
+    <small>© <span id="year"></span> ARKON INGENIERÍA · PROTOTIPO</small>
+  </footer>
+
+  <div class="modal" id="loginModal" aria-hidden="true">
+    <div class="modal-backdrop" data-close></div>
+    <div class="modal-box" role="dialog" aria-modal="true" aria-labelledby="loginTitle">
+      <button class="modal-close" id="loginClose" aria-label="Cerrar">×</button>
+      <div class="login-brand"><span class="brand-symbol">A<span>+</span></span></div>
+      <p class="kicker">ACCESO ARKON / PORTAL</p>
+      <h2 id="loginTitle">Bienvenido.</h2>
+      <p class="modal-text">Ingresa para acceder a tu espacio de trabajo.</p>
+      <form id="loginForm">
+        <div class="login-modes" aria-label="Tipo de acceso">
+          <button class="mode-btn active" type="button" data-role="client" aria-pressed="true">Acceso de
+            cliente</button>
+          <button class="mode-btn" type="button" data-role="manager" aria-pressed="false">Acceso de gerente</button>
+        </div>
+        <label>Nombre de usuario
+          <input id="loginUser" required autocomplete="username" placeholder="Usuario">
+        </label>
+        <label>Contraseña
+          <input id="loginPass" required type="password" autocomplete="current-password" placeholder="Contraseña">
+        </label>
+        <p class="login-hint" id="loginHint"></p>
+        <p class="feedback" id="loginFeedback" aria-live="polite"></p>
+        <button class="btn primary full" type="submit">Ingresar <b>↗</b></button>
+      </form>
+      <small class="demo-warning">Ingresa tus datos</small>
+    </div>
+  </div>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <script src="script.js"></script>
+</body>
+
+</html>
