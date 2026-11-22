@@ -1,0 +1,70 @@
+{
+  "negocio": {
+    "nombre": "El Rincón de Chamaca",
+    "whatsapp": "59178826105"
+  },
+  "precios": {
+    "almuerzoCompleto": 20,
+    "segundo": 15,
+    "sopa": 7
+  },
+  "semana": [
+    {
+      "dia": "Lunes",
+      "sopa": {
+        "nombre": "Sopa de arroz con maní",
+        "imagen": "imagenes/lunes/sopa.webp"
+      },
+      "segundos": [
+        { "nombre": "Milanesa de pollo", "imagen": "imagenes/lunes/s1.webp" },
+        { "nombre": "Saice", "imagen": "imagenes/lunes/s2.webp" },
+        { "nombre": "Guiso de res", "imagen": "imagenes/lunes/s3.webp" }
+      ]
+    },
+    {
+      "dia": "Martes",
+      "sopa": {
+        "nombre": "Sopa de fideo",
+        "imagen": "imagenes/martes/s1.webp"
+      },
+      "segundos": [
+        { "nombre": "Ají de lenteja", "imagen": "imagenes/martes/s2.webp" },
+        { "nombre": "Pollo al horno", "imagen": "imagenes/martes/s3.webp" },
+        { "nombre": "Fritanga", "imagen": "imagenes/martes/s4.webp" }
+      ]
+    },
+    {
+      "dia": "Miércoles",
+      "sopa": {
+        "nombre": "Chairo",
+        "imagen": "imagenes/miercoles/s1.webp"
+      },
+      "segundos": [
+        { "nombre": "Revuelto de carne", "imagen": "imagenes/miercoles/s2.webp" },
+        { "nombre": "Chuleta de chancho", "imagen": "imagenes/miercoles/s3.webp" },
+        { "nombre": "Ají de panza", "imagen": "imagenes/miercoles/s4.webp" }
+      ]
+    },
+    {
+      "dia": "Jueves",
+      "sopa": {
+        "nombre": "Sopa de maní con fideo",
+        "imagen": "imagenes/jueves/s1.webp"
+      },
+      "segundos": [
+        { "nombre": "Trucha", "imagen": "imagenes/jueves/s2.webp" },
+        { "nombre": "Falso conejo", "imagen": "imagenes/jueves/s3.webp" },
+        { "nombre": "Albóndiga", "imagen": "imagenes/jueves/s4.webp" }
+      ]
+    }
+  ],
+  "especiales": [
+    { "nombre": "Chicharrón", "precio": 40, "imagen": "imagenes/fin de semana/chicharron.webp" },
+    { "nombre": "Charquekan", "precio": 40, "imagen": "imagenes/fin de semana/charquekan.webp" },
+    { "nombre": "Lechón", "precio": 40, "imagen": "imagenes/fin de semana/lechon.webp" },
+    { "nombre": "Fricasé", "precio": 40, "imagen": "imagenes/fin de semana/fricase.webp" },
+    { "nombre": "Chairo", "precio": 20, "imagen": "imagenes/fin de semana/chairo.webp" },
+    { "nombre": "Sajta", "precio": 20, "imagen": "imagenes/fin de semana/sajta.webp" },
+    { "nombre": "Pollo al horno", "precio": 35, "imagen": "imagenes/fin de semana/pollo al horno.webp" }
+  ]
+}
