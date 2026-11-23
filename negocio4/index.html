@@ -1,0 +1,255 @@
+<!doctype html>
+<html lang="es">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+    <meta name="theme-color" content="#26372e">
+    <title>DecoHogar | Muebles para vivir mejor</title>
+    <link rel="manifest" href="manifest.json">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+</head>
+
+<body>
+    <section id="access" class="access">
+        <div class="access-photo">
+            <div class="logo"><i>D</i> deco<strong>hogar</strong></div>
+            <div><small>DISEÑO QUE SE SIENTE COMO HOGAR</small>
+                <h1>Tu espacio,<br><em>tu historia.</em></h1>
+                <p>Muebles y detalles para convertir cada rincón en un lugar especial.</p>
+            </div><small>LA PAZ · BOLIVIA</small></div>
+        <div class="access-box"><small>BIENVENIDO A DECOHOGAR</small>
+            <h2>¿Cómo deseas ingresar?</h2>
+            <p>Selecciona el tipo de acceso para continuar.</p><button id="clientEnter" class="choice">♙ <span><b>Ingresar como cliente</b><small>Explora muebles y realiza tus pedidos</small></span> →</button><button id="managerEnter" class="choice">▦ <span><b>Ingresar como gerente</b><small>Administra productos, pedidos y actividad</small></span> →</button></div>
+        <div
+            id="pinModal" class="overlay hidden">
+            <form id="pinForm" class="modal"><button type="button" class="x" data-close="pinModal">×</button><small>ACCESO RESTRINGIDO</small>
+                <h2>Acceso de gerente</h2>
+                <p>Introduce el PIN de demostración.</p><input id="pin" type="password" inputmode="numeric" placeholder="PIN de acceso" required>
+                <p id="pinError" class="error"></p><button class="primary">Entrar al panel</button><small>PIN de demostración: 1234</small></form>
+            </div>
+    </section>
+    <div id="app" class="app hidden">
+        <aside id="sidebar" class="sidebar">
+            <div class="logo"><i>D</i> deco<strong>hogar</strong></div><small class="side-label">MENÚ PRINCIPAL</small>
+            <nav id="clientNav"><button data-view="home" class="nav active">⌂ Inicio</button><button data-view="catalog" class="nav">▦ Productos</button><button data-view="cart" class="nav">🛒 Mi carrito <b id="cartCount">0</b></button><button data-view="orders" class="nav">▤ Mis pedidos</button>
+                <button
+                    data-view="about" class="nav">✧ Nosotros</button>
+            </nav>
+            <nav id="managerNav" class="hidden"><button data-view="dashboard" class="nav active">▦ Dashboard</button><button data-view="manageProducts" class="nav">◇ Productos</button><button data-view="manageOrders" class="nav">▤ Pedidos</button><button data-view="activity" class="nav">◷ Bitácora</button></nav>
+            <div
+                class="side-bottom">
+                <div id="connection">● Conectado</div><button id="theme">☾ Modo oscuro</button><button id="logout">⇥ Cerrar sesión</button>
+                <div class="user"><i id="avatar">C</i><span><b id="userName">Cliente</b><small id="roleName">Cuenta cliente</small></span></div>
+    </div>
+    </aside>
+    <main class="main">
+        <header><button id="hamb" class="hamb">☰</button>
+            <div><small>DECOHOGAR · LA PAZ</small>
+                <h2 id="title">Bienvenido a tu hogar</h2>
+            </div><span id="online">● Online</span></header>
+        <div class="stage">
+            <section class="view active" id="v-home">
+                <div class="hero">
+                    <div><small>COLECCIÓN PARA TU HOGAR</small>
+                        <h1>Haz de tu espacio<br><em>tu lugar favorito.</em></h1>
+                        <p>Diseño, comodidad y calidez en cada detalle. Encuentra muebles que hablan de ti.</p><button data-go="catalog" class="light">Explorar colección →</button></div><img src="images/hero-sala.jpg" alt="Sala moderna" onerror="this.src='https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=900&q=80'"></div>
+                <div
+                    class="home-bottom">
+                    <div>
+                        <div class="heading">
+                            <div><small>ENCUENTRA TU ESTILO</small>
+                                <h3>Explora categorías</h3>
+                            </div><button data-go="catalog" class="textbtn">Ver catálogo →</button></div>
+                        <div class="categories"><button data-cat="Sala"><img src="images/cat-sala.jpg" onerror="this.src='https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=400'" alt=""><b>Sala</b></button><button data-cat="Dormitorio"><img src="images/cat-dormitorio.jpg" onerror="this.src='https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?w=400'" alt=""><b>Dormitorio</b></button>
+                            <button
+                                data-cat="Comedor"><img src="images/cat-comedor.jpg" onerror="this.src='https://images.unsplash.com/photo-1617806118233-18e1de247200?w=400'" alt=""><b>Comedor</b></button><button data-cat="Iluminación"><img src="images/cat-luz.jpg" onerror="this.src='https://images.unsplash.com/photo-1507473885765-e6ed057f782c?w=400'" alt=""><b>Iluminación</b></button>
+                                <button
+                                    data-cat="Decoración"><img src="images/cat-deco.jpg" onerror="this.src='https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?w=400'" alt=""><b>Decoración</b></button><button data-cat="Organización"><img src="images/cat-org.jpg" onerror="this.src='https://images.unsplash.com/photo-1594620302200-9a762244a156?w=400'" alt=""><b>Organización</b></button></div>
+                    </div>
+                    <aside class="promo"><small>SELECCIÓN DE LA SEMANA</small>
+                        <h3>Pequeños detalles,<br>grandes cambios.</h3>
+                        <p>Inspírate y renueva tus espacios.</p><img src="images/promo.jpg" alt="Decoración" onerror="this.src='https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=500'"></aside>
+        </div>
+        </section>
+        <section class="view" id="v-catalog">
+            <div class="view-head">
+                <div><small>NUESTRA COLECCIÓN</small>
+                    <h1>Encuentra tu próximo favorito.</h1>
+                    <p>Piezas seleccionadas para hacer de tu casa un hogar.</p>
+                </div>
+                <div class="tools"><input id="search" placeholder="⌕ Buscar producto..."><select id="category"><option>Todas</option><option>Sala</option><option>Dormitorio</option><option>Comedor</option><option>Iluminación</option><option>Decoración</option><option>Organización</option></select></div>
+            </div>
+            <div class="catalog-meta"><span id="resultCount">Productos destacados</span>
+                <div id="pages"></div>
+            </div>
+            <div id="products" class="products"></div>
+            <div class="footline"><span>Selecciona “Ver detalles” para girar cada tarjeta.</span><span id="pageLabel"></span></div>
+        </section>
+        <section class="view" id="v-cart">
+            <div class="view-head">
+                <div><small>TU SELECCIÓN</small>
+                    <h1>Mi carrito.</h1>
+                    <p>Revisa tus muebles antes de realizar el pedido.</p>
+                </div>
+            </div>
+            <div class="cart-layout">
+                <div class="panel">
+                    <div class="heading">
+                        <h3>Productos seleccionados</h3><span id="itemCount">0 artículos</span></div>
+                    <div id="cartRows"></div>
+                </div>
+                <aside class="panel total"><small>RESUMEN DE COMPRA</small>
+                    <h2>Tu pedido</h2>
+                    <p><span>Subtotal</span><b id="subtotal">Bs. 0</b></p>
+                    <p><span>Envío</span><small>A coordinar</small></p>
+                    <hr>
+                    <p class="grand"><span>Total</span><b id="total">Bs. 0</b></p><button id="checkoutOpen" class="primary">Continuar pedido →</button><small>El costo de envío se coordinará al confirmar.</small></aside>
+            </div>
+        </section>
+        <section class="view" id="v-orders">
+            <div class="view-head">
+                <div><small>SIGUE TU COMPRA</small>
+                    <h1>Mis pedidos.</h1>
+                    <p>Consulta el resumen de tus compras.</p>
+                </div>
+            </div>
+            <div class="panel fill">
+                <div class="heading">
+                    <h3>Historial de pedidos</h3><span id="orderCount">0 pedidos</span></div>
+                <div id="myOrders"></div>
+            </div>
+        </section>
+        <section class="view" id="v-about">
+            <div class="about"><img src="images/about.jpg" alt="Interior DecoHogar" onerror="this.src='https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?w=900'">
+                <div><small>NUESTRA ESENCIA</small>
+                    <h1>Creemos en hogares<br><em>con personalidad.</em></h1>
+                    <p>DecoHogar es una tienda ficticia de La Paz, Bolivia, dedicada a ofrecer muebles y artículos de decoración modernos, elegantes y funcionales.</p>
+                    <p>Queremos ayudarte a crear espacios cómodos, prácticos y llenos de identidad.</p><button data-go="catalog" class="primary">Conocer productos →</button></div>
+            </div>
+        </section>
+        <section class="view" id="v-dashboard">
+            <div class="view-head">
+                <div><small>RESUMEN DE TU TIENDA</small>
+                    <h1>Hola, gerente.</h1>
+                    <p>Esto es lo que sucede hoy en DecoHogar.</p>
+                </div><span id="today"></span></div>
+            <div class="stats">
+                <article><small>Productos</small><b id="mProducts">0</b><em>En catálogo</em></article>
+                <article><small>Pedidos</small><b id="mOrders">0</b><em>Registrados</em></article>
+                <article><small>Clientes</small><b id="mClients">0</b><em>Identificados</em></article>
+                <article><small>Actividad</small><b id="mEvents">0</b><em>Eventos</em></article>
+            </div>
+            <div class="dash-bottom">
+                <div class="panel">
+                    <h3>Productos más vistos</h3>
+                    <div id="popular"></div>
+                </div>
+                <div class="panel">
+                    <div class="heading">
+                        <h3>Actividad reciente</h3><button data-go="activity" class="textbtn">Ver bitácora →</button></div>
+                    <div id="recent"></div>
+                </div>
+            </div>
+        </section>
+        <section class="view" id="v-manageProducts">
+            <div class="view-head">
+                <div><small>ADMINISTRACIÓN</small>
+                    <h1>Catálogo de productos.</h1>
+                    <p>Agrega y administra las piezas disponibles.</p>
+                </div><button id="addProductOpen" class="primary">+ Nuevo producto</button></div>
+            <div class="panel fill tablewrap">
+                <div class="heading">
+                    <h3>Productos registrados</h3><span id="productCount"></span></div>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Producto</th>
+                            <th>Categoría</th>
+                            <th>Precio</th>
+                            <th>Vistas</th>
+                            <th>Acción</th>
+                        </tr>
+                    </thead>
+                    <tbody id="managerProducts"></tbody>
+                </table>
+            </div>
+        </section>
+        <section class="view" id="v-manageOrders">
+            <div class="view-head">
+                <div><small>GESTIÓN COMERCIAL</small>
+                    <h1>Pedidos recibidos.</h1>
+                    <p>Actualiza el estado de cada pedido.</p>
+                </div>
+            </div>
+            <div class="panel fill tablewrap">
+                <div class="heading">
+                    <h3>Todos los pedidos</h3><span id="managerOrderCount"></span></div>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>N.º</th>
+                            <th>Cliente</th>
+                            <th>Fecha</th>
+                            <th>Total</th>
+                            <th>Estado</th>
+                            <th>Actualizar</th>
+                        </tr>
+                    </thead>
+                    <tbody id="managerOrders"></tbody>
+                </table>
+            </div>
+        </section>
+        <section class="view" id="v-activity">
+            <div class="view-head">
+                <div><small>AUDITORÍA DEL SISTEMA</small>
+                    <h1>Bitácora de eventos.</h1>
+                    <p>Registro de acciones realizadas dentro de DecoHogar.</p>
+                </div><button id="export" class="outline">Exportar CSV ↓</button></div>
+            <div class="panel fill tablewrap">
+                <div class="heading"><span id="logCount"></span><input id="logSearch" placeholder="Buscar en bitácora..."></div>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Fecha y hora</th>
+                            <th>Usuario</th>
+                            <th>Evento</th>
+                            <th>Detalle</th>
+                        </tr>
+                    </thead>
+                    <tbody id="logs"></tbody>
+                </table>
+            </div>
+        </section>
+        </div>
+        <footer>© 2026 DecoHogar · La Paz, Bolivia <span>Diseño que se siente como hogar</span></footer>
+    </main>
+    </div>
+    <div id="productModal" class="overlay hidden">
+        <div class="modal wide"><button class="x" data-close="productModal">×</button>
+            <div id="detail"></div>
+        </div>
+    </div>
+    <div id="checkoutModal" class="overlay hidden">
+        <form id="checkoutForm" class="modal"><button type="button" class="x" data-close="checkoutModal">×</button><small>ÚLTIMO PASO</small>
+            <h2>Completa tu pedido.</h2>
+            <p>Al confirmar abriremos WhatsApp con el detalle de tu compra.</p>
+            <div class="formgrid"><label>Nombre completo<input name="name" required minlength="3"><small></small></label><label>Teléfono<input name="phone" required pattern="[0-9 +()-]{7,15}" placeholder="78826105"><small></small></label><label>Correo electrónico<input name="email" type="email" required><small></small></label><label>Dirección<input name="address" required minlength="5"><small></small></label></div>
+            <p
+                class="checkout-total">Total <b id="checkoutTotal">Bs. 0</b></p><button class="primary">Confirmar y enviar por WhatsApp ↗</button><small>WhatsApp DecoHogar: 78826105</small></form>
+    </div>
+    <div id="newProductModal" class="overlay hidden">
+        <form id="newProductForm" class="modal"><button type="button" class="x" data-close="newProductModal">×</button><small>CATÁLOGO</small>
+            <h2>Agregar producto.</h2>
+            <div class="formgrid"><label>Nombre<input name="name" required></label><label>Categoría<select name="category"><option>Sala</option><option>Dormitorio</option><option>Comedor</option><option>Iluminación</option><option>Decoración</option><option>Organización</option></select></label><label>Precio Bs.<input name="price" type="number" min="1" required></label><label>Ruta de imagen<input name="image" placeholder="images/producto.jpg"></label>
+                <label
+                    class="full">Descripción<input name="description" required></label><label class="full">Características<input name="features" placeholder="Madera, color, medidas"></label></div><button class="primary">Guardar producto</button></form>
+    </div>
+    <div id="toast" class="toast"></div>
+    <script src="script.js"></script>
+</body>
+
+</html>

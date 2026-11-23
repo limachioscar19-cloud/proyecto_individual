@@ -1,0 +1,11 @@
+{
+  "name": "DecoHogar - Tienda de muebles",
+  "short_name": "DecoHogar",
+  "description": "Catálogo y pedidos de muebles y decoración para el hogar.",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#f5f4ef",
+  "theme_color": "#26372e",
+  "icons": []
+}

@@ -1,0 +1,121 @@
+[{
+        "id": 1,
+        "name": "Sofá Nórdico",
+        "category": "Sala",
+        "price": 2450,
+        "description": "Sofá de líneas suaves, ideal para una sala moderna y acogedora.",
+        "features": ["Tapizado resistente", "Estructura reforzada", "Diseño contemporáneo"],
+        "availability": "Disponible",
+        "image": "images/sofa_nordico.webp"
+    },
+    {
+        "id": 2,
+        "name": "Lámpara Aura",
+        "category": "Iluminación",
+        "price": 350,
+        "description": "Luz cálida y diseño delicado para acompañar tus espacios.",
+        "features": ["Luz ambiental", "Acabado elegante", "Fácil instalación"],
+        "availability": "Disponible",
+        "image": "images/lampara_aura.webp"
+    },
+    {
+        "id": 3,
+        "name": "Espejo Roma",
+        "category": "Decoración",
+        "price": 480,
+        "description": "Espejo decorativo que aporta amplitud y personalidad.",
+        "features": ["Marco resistente", "Estilo moderno", "Formato decorativo"],
+        "availability": "Disponible",
+        "image": "images/espejo_roma.jpg"
+    },
+    {
+        "id": 4,
+        "name": "Mesa Oslo",
+        "category": "Comedor",
+        "price": 1890,
+        "description": "Mesa funcional para compartir momentos especiales.",
+        "features": ["Superficie lavable", "Acabado madera", "Diseño estable"],
+        "availability": "Disponible",
+        "image": "images/mesa_oslo.webp"
+    },
+    {
+        "id": 5,
+        "name": "Silla Nórdica",
+        "category": "Comedor",
+        "price": 420,
+        "description": "Silla cómoda de inspiración escandinava.",
+        "features": ["Asiento ergonómico", "Patas resistentes", "Fácil de combinar"],
+        "availability": "Disponible",
+        "image": "images/silla_nordica.jpg"
+    },
+    {
+        "id": 6,
+        "name": "Cama Oslo",
+        "category": "Dormitorio",
+        "price": 3250,
+        "description": "Un diseño sereno para convertir tu dormitorio en refugio.",
+        "features": ["Estructura firme", "Estilo minimalista", "Acabado natural"],
+        "availability": "Disponible",
+        "image": "images/cama_oslo.jpg"
+    },
+    {
+        "id": 7,
+        "name": "Cómoda Nativa",
+        "category": "Organización",
+        "price": 1350,
+        "description": "Organiza tus objetos con estilo y practicidad.",
+        "features": ["Cajones amplios", "Diseño compacto", "Fácil mantenimiento"],
+        "availability": "Disponible",
+        "image": "images/comoda_nativa.png"
+    },
+    {
+        "id": 8,
+        "name": "Butaca Serena",
+        "category": "Sala",
+        "price": 1680,
+        "description": "Un asiento especial para leer, descansar y disfrutar.",
+        "features": ["Tapizado suave", "Respaldo cómodo", "Estructura sólida"],
+        "availability": "Disponible",
+        "image": "images/butaca_serena.jpg"
+    },
+    {
+        "id": 9,
+        "name": "Estante Roble",
+        "category": "Organización",
+        "price": 890,
+        "description": "Solución versátil para ordenar y decorar.",
+        "features": ["Varios niveles", "Diseño abierto", "Acabado cálido"],
+        "availability": "Disponible",
+        "image": "images/estante_roble.webp"
+    },
+    {
+        "id": 10,
+        "name": "Cuadro Botánico",
+        "category": "Decoración",
+        "price": 260,
+        "description": "Un toque natural para tus paredes.",
+        "features": ["Diseño botánico", "Fácil colocación", "Estilo atemporal"],
+        "availability": "Disponible",
+        "image": "images/cuadro_botanico.jpg"
+    },
+    {
+        "id": 11,
+        "name": "Velador Lino",
+        "category": "Dormitorio",
+        "price": 690,
+        "description": "Un complemento práctico para tu habitación.",
+        "features": ["Tamaño compacto", "Superficie auxiliar", "Estilo cálido"],
+        "availability": "Disponible",
+        "image": "images/velador_lino.jpg"
+    },
+    {
+        "id": 12,
+        "name": "Lámpara Arco",
+        "category": "Iluminación",
+        "price": 620,
+        "description": "Iluminación decorativa con presencia y personalidad.",
+        "features": ["Luz ambiental", "Diseño actual", "Base estable"],
+        "availability": "Disponible",
+        "image": "images/lampara_arco.webp"
+    }
+]
