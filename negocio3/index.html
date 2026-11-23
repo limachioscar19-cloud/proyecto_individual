@@ -1,0 +1,227 @@
+<!doctype html>
+<html lang="es">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#142b40">
+  <meta name="description" content="Limatex: fabricación y comercialización de productos textiles.">
+  <title>LIMATEX | Soluciones textiles</title>
+  <link rel="icon" href="imagenes/logo.png" type="image/png">
+  <link rel="apple-touch-icon" href="imagenes/logo.png">
+  <link rel="manifest" href="manifest.json">
+  <link rel="stylesheet" href="styles.css">
+  <script src="script.js" defer></script>
+</head>
+
+<body>
+  <a class="skip" href="#main">Saltar al contenido</a>
+
+  <header class="header" id="appHeader">
+    <a class="brand" href="#inicio">
+      <img src="imagenes/logo.png" alt="Logo Limatex" class="brand__logo-img"
+        style="width:38px; height:38px; object-fit:contain; border-radius:8px; background:#fff; padding:2px; flex-shrink:0;">
+      <span>LIMA<span class="brand__light">TEX</span><small>INDUSTRIA TEXTIL</small></span>
+    </a>
+    <nav class="nav" id="mainNav" aria-label="Principal" data-hydrate="nav"></nav>
+    <div class="header__actions">
+      <button class="icon-button" id="themeToggle" aria-label="Cambiar tema">◐</button>
+      <button class="button button--outline" id="loginOpen">Ingresar</button>
+      <button class="button button--solid" id="cartOpen" aria-label="Abrir solicitud">Solicitud <span
+          id="cartCount">0</span></button>
+      <button class="header__menu" id="menuToggle" aria-label="Abrir menú" aria-expanded="false">☰</button>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="site-section hero is-active" id="inicio" aria-labelledby="heroTitle">
+      <div class="container hero__grid">
+        <div class="hero__content" data-hydrate="hero">
+          <div class="skeleton skeleton--title"></div>
+          <div class="skeleton skeleton--text"></div>
+          <div class="skeleton skeleton--text"></div>
+        </div>
+        <div class="hero__visual">
+          <img id="heroImage" alt="Textiles y tejidos industriales" fetchpriority="high">
+          <div class="hero__tag"><strong>Soluciones<br>para cada tejido</strong></div>
+        </div>
+      </div>
+      <div class="home-strip" data-hydrate="strip"></div>
+
+      <div class="container" style="padding: clamp(32px, 5vw, 60px) 0;">
+        <div class="section__heading">
+          <div><span class="eyebrow" style="color:var(--gold);">NUESTRAS LÍNEAS</span>
+            <h2 id="catTitle" style="color:#fff;">Explora nuestras <em>líneas textiles</em></h2>
+          </div>
+          <a class="text-link" href="#productos" style="color:var(--gold);">Ver todos los productos ↗</a>
+        </div>
+        <div class="category-grid" id="homeCategories" data-hydrate="categories"></div>
+      </div>
+
+      <footer class="footer" data-hydrate="footer"></footer>
+    </section>
+
+
+
+    <section class="site-section alt" id="productos" aria-labelledby="prodTitle">
+      <div class="container">
+        <div class="section__heading">
+          <div><span class="eyebrow">CATÁLOGO LIMATEX</span>
+            <h2 id="prodTitle">Productos para cada <em>necesidad</em></h2>
+          </div>
+          <div class="catalog-total"><strong id="productTotal">0</strong><span>productos</span></div>
+        </div>
+        <div class="catalog-tools">
+          <label class="search-box"><span aria-hidden="true">⌕</span>
+            <input id="productSearch" type="search" placeholder="Buscar producto..." aria-label="Buscar producto">
+          </label>
+          <select id="sortFilter" aria-label="Ordenar productos">
+            <option value="default">Orden recomendado</option>
+            <option value="az">Nombre A-Z</option>
+            <option value="za">Nombre Z-A</option>
+          </select>
+        </div>
+        <div class="chip-row" id="categoryChips" role="group" aria-label="Filtrar por categoría"></div>
+        <div class="product-grid" id="productGrid" aria-live="polite"></div>
+      </div>
+      <footer class="footer" id="productosFooter" data-hydrate="footer" style="margin-top:clamp(40px, 6vw, 80px);">
+      </footer>
+    </section>
+
+    <section class="site-section" id="empresa" aria-labelledby="aboutTitle">
+      <div class="container about" data-hydrate="about"></div>
+      <footer class="footer" id="empresaFooter" data-hydrate="footer" style="margin-top:clamp(40px, 6vw, 80px);">
+      </footer>
+    </section>
+
+    <section class="site-section alt" id="contacto" aria-labelledby="contactTitle">
+      <div class="container">
+        <div class="section__heading">
+          <div><span class="eyebrow">CONTACTO Y COTIZACIONES</span>
+            <h2 id="contactTitle">Cuéntanos qué <em>necesitas</em></h2>
+          </div>
+          <p class="section__note">Elige la categoría, marca el producto y envíanos tu solicitud.</p>
+        </div>
+        <div class="contact-grid">
+          <form id="quoteForm" class="card form-card" novalidate>
+            <div class="form-row">
+              <label for="qName">Nombre completo *
+                <input id="qName" name="name" required minlength="3" maxlength="70" autocomplete="name"
+                  placeholder="Tu nombre">
+                <small class="field-error" data-error-for="name"></small>
+              </label>
+              <label for="qPhone">Teléfono *
+                <input id="qPhone" name="phone" type="tel" required inputmode="tel" maxlength="16" autocomplete="tel"
+                  placeholder="Ej. 70012345">
+                <small class="field-error" data-error-for="phone"></small>
+              </label>
+            </div>
+
+            <fieldset class="picker">
+              <legend>Producto de interés *</legend>
+              <div class="chip-row chip-row--small" id="quoteCategories" role="group"
+                aria-label="Categoría del producto"></div>
+              <div class="picker__list" id="quoteProducts" role="radiogroup" aria-label="Productos de la categoría">
+              </div>
+              <small class="field-error" data-error-for="product"></small>
+            </fieldset>
+
+            <div class="form-row">
+              <label for="qPresentation">Presentación
+                <select id="qPresentation" name="presentation"></select>
+              </label>
+              <label for="qQuantity">Cantidad *
+                <input id="qQuantity" name="quantity" type="number" min="1" max="99999" value="1" required
+                  inputmode="numeric">
+                <small class="field-error" data-error-for="quantity"></small>
+              </label>
+            </div>
+
+            <label for="qDetails">Detalles
+              <textarea id="qDetails" name="details" rows="3" maxlength="500"
+                placeholder="Medidas, colores u otros detalles..."></textarea>
+              <small class="field-hint" id="detailsCount">0 / 500</small>
+            </label>
+
+            <div class="quote-summary" id="quoteSummary" aria-live="polite"></div>
+            <button class="button button--solid button--wide" type="submit">Enviar solicitud por WhatsApp ↗</button>
+          </form>
+
+          <aside class="card location-card" data-hydrate="location"></aside>
+        </div>
+      </div>
+      <footer class="footer" id="contactoFooter" data-hydrate="footer" style="margin-top:clamp(40px, 6vw, 80px);">
+      </footer>
+    </section>
+
+    <section class="panel" id="panel" hidden aria-labelledby="roleTitle">
+      <div class="container">
+        <div class="role-top">
+          <div><span class="eyebrow">PANEL DE TRABAJO</span>
+            <h2 id="roleTitle">Panel</h2>
+            <p id="roleSubtitle"></p>
+          </div>
+          <button class="button button--outline" id="logoutButton">Cerrar sesión</button>
+        </div>
+        <div class="role-tabs" id="roleTabs" role="tablist"></div>
+        <div id="roleContent"></div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer" data-hydrate="footer"></footer>
+
+  <div class="modal" id="loginModal" aria-hidden="true">
+    <div class="modal__backdrop" data-close="loginModal"></div>
+    <div class="modal__panel" role="dialog" aria-modal="true" aria-labelledby="loginTitle">
+      <button class="modal__close" data-close="loginModal" aria-label="Cerrar">×</button>
+      <span class="eyebrow">ACCESO AL SISTEMA</span>
+      <h2 id="loginTitle">Bienvenido a Limatex</h2>
+      <p class="modal__text">Ingresa con tu cuenta de demostración.</p>
+      <form id="loginForm" novalidate>
+        <label for="lUser">Usuario<input id="lUser" name="username" required autocomplete="username"></label>
+        <label for="lPass">Contraseña<input id="lPass" name="password" type="password" required
+            autocomplete="current-password"></label>
+        <p class="form-error" id="loginError" aria-live="polite"></p>
+        <button class="button button--solid button--wide" type="submit">Ingresar</button>
+      </form>
+      <div class="demo-access">
+        <b>Cuentas de demostración</b>
+        <span>Cliente: cliente / cliente123</span>
+        <span>Empleado: empleado / empleado123</span>
+        <span>Gerente: gerente / gerente123</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal" id="cartModal" aria-hidden="true">
+    <div class="modal__backdrop" data-close="cartModal"></div>
+    <div class="modal__panel modal__panel--wide" role="dialog" aria-modal="true" aria-labelledby="cartTitle">
+      <button class="modal__close" data-close="cartModal" aria-label="Cerrar">×</button>
+      <span class="eyebrow">TU SOLICITUD</span>
+      <h2 id="cartTitle">Productos seleccionados</h2>
+      <div id="cartItems"></div>
+      <div class="cart-bottom">
+        <strong id="cartSummary">0 productos</strong>
+        <button class="button button--solid" id="sendCart">Solicitar por WhatsApp ↗</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="lightbox" id="lightbox" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Imagen ampliada">
+    <button class="lightbox__close" id="lightboxClose" aria-label="Cerrar imagen">×</button>
+    <button class="lightbox__nav lightbox__nav--prev" id="lightboxPrev" aria-label="Imagen anterior">‹</button>
+    <button class="lightbox__nav lightbox__nav--next" id="lightboxNext" aria-label="Imagen siguiente">›</button>
+    <div class="lightbox__stage" id="lightboxStage"><img id="lightboxImage" alt=""></div>
+    <div class="lightbox__bar">
+      <button id="zoomOut" aria-label="Alejar">−</button>
+      <span id="zoomLevel">100%</span>
+      <button id="zoomIn" aria-label="Acercar">+</button>
+      <p id="lightboxCaption"></p>
+    </div>
+  </div>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+</body>
+
+</html>
