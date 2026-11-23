@@ -1,0 +1,248 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#123222">
+  <meta name="description" content="Limatex: fabricación y comercialización de productos textiles.">
+  <title>LIMATEX | Fabricación textil</title>
+  <link rel="icon" href="imagenes/icon-192.png" type="image/png">
+  <link rel="apple-touch-icon" href="imagenes/icon-192.png">
+  <link rel="manifest" href="manifest.json">
+  <link rel="stylesheet" href="styles.css">
+  <script src="script.js" defer></script>
+</head>
+<body data-view="inicio">
+  <a class="skip" href="#main">Saltar al contenido</a>
+
+  <header class="topbar">
+    <a class="brand" href="#inicio" data-go="inicio">
+      <img class="brand-logo" src="imagenes/logo.png" alt="">
+      <span class="brand-text">LIMATEX<small>FABRICACIÓN TEXTIL</small></span>
+    </a>
+    <nav id="nav" aria-label="Principal" data-hydrate="nav"></nav>
+    <div class="tools">
+      <button type="button" class="icon-btn desk-only" data-action="theme" aria-label="Cambiar tema">◐</button>
+      <button type="button" class="top-btn" id="loginOpen">Ingresar</button>
+      <button type="button" class="top-btn top-btn--solid" id="cartOpen" aria-label="Abrir solicitud">Solicitud <span id="cartCount">0</span></button>
+      <button type="button" class="menu-btn" id="menuBtn" aria-label="Abrir menú" aria-expanded="false">☰</button>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="view hero is-active" data-view="inicio" aria-labelledby="heroTitle">
+      <div class="inner hero-inner">
+        <div class="hero-copy" data-hydrate="hero">
+          <div class="skeleton skeleton--title"></div>
+          <div class="skeleton skeleton--text"></div>
+        </div>
+        <div class="hero-logo"><img src="imagenes/logo.png" alt="Logotipo de Limatex, fabricación textil" fetchpriority="high"></div>
+      </div>
+      <footer class="hero-foot" data-hydrate="footer"></footer>
+    </section>
+
+    <section class="view" data-view="productos" aria-labelledby="productosTitle">
+      <div class="inner">
+        <div class="head">
+          <div>
+            <p class="kicker">CATÁLOGO LIMATEX</p>
+            <h2 id="productosTitle">Productos para cada <em>necesidad</em></h2>
+          </div>
+          <div class="catalog-total"><strong id="productTotal">0</strong><span>productos</span></div>
+        </div>
+        <div class="toolbar">
+          <label class="search-box"><span aria-hidden="true">⌕</span>
+            <input id="productSearch" type="search" placeholder="Buscar producto..." aria-label="Buscar producto">
+          </label>
+          <select id="categoryFilter" aria-label="Filtrar por categoría"></select>
+          <select id="sortFilter" class="sort-only" aria-label="Ordenar productos">
+            <option value="default">Orden recomendado</option>
+            <option value="az">Nombre A-Z</option>
+            <option value="za">Nombre Z-A</option>
+          </select>
+        </div>
+        <div class="list-wrap">
+          <div class="product-grid" id="productGrid" aria-live="polite"></div>
+          <div class="pager">
+            <button type="button" id="prodPrev" aria-label="Página anterior">‹</button>
+            <span id="prodLabel">1 / 1</span>
+            <button type="button" id="prodNext" aria-label="Página siguiente">›</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="view" data-view="empresa" aria-labelledby="aboutTitle">
+      <div class="inner about" data-hydrate="about"></div>
+    </section>
+
+    <section class="view" data-view="contacto" aria-labelledby="contactTitle">
+      <div class="inner">
+        <div class="head">
+          <div>
+            <p class="kicker">CONTACTO Y COTIZACIONES</p>
+            <h2 id="contactTitle">Cuéntanos qué <em>necesitas</em></h2>
+          </div>
+          <a class="loc-link" id="locLink" target="_blank" rel="noopener">📍 <span class="loc-text">Ver ubicación</span><span class="loc-arrow"> ↗</span></a>
+        </div>
+        <div class="contact-grid">
+          <form id="quoteForm" class="card form-card" novalidate>
+            <ol class="steps" id="steps" aria-label="Pasos de la solicitud">
+              <li class="is-active"><b>1</b><span>Tus datos</span></li>
+              <li><b>2</b><span>Producto</span></li>
+              <li><b>3</b><span>Detalles</span></li>
+            </ol>
+            <div class="step-body">
+              <div class="step is-active" data-step="1">
+                <div class="field">
+                  <label for="qName">Nombre completo *</label>
+                  <input id="qName" name="name" data-rule="name" required minlength="3" maxlength="70" autocomplete="name" placeholder="Tu nombre">
+                  <span class="field__icon" aria-hidden="true"></span><small class="field__msg"></small>
+                </div>
+                <div class="field">
+                  <label for="qPhone">Teléfono *</label>
+                  <input id="qPhone" name="phone" type="tel" data-rule="phone" required inputmode="tel" maxlength="16" autocomplete="tel" placeholder="Ej. 70012345">
+                  <span class="field__icon" aria-hidden="true"></span><small class="field__msg"></small>
+                </div>
+              </div>
+
+              <div class="step" data-step="2">
+                <div class="field">
+                  <label for="qCategory">Categoría *</label>
+                  <select id="qCategory" name="category" data-rule="category" required></select>
+                  <span class="field__icon" aria-hidden="true"></span><small class="field__msg"></small>
+                </div>
+                <div class="field field--products" id="productField">
+                  <div class="picker__list" id="quoteProducts" role="radiogroup" aria-label="Productos de la categoría"></div>
+                  <small class="field__msg"></small>
+                </div>
+                <div class="pair">
+                  <div class="field">
+                    <label for="qPresentation">Presentación</label>
+                    <select id="qPresentation" name="presentation"></select>
+                  </div>
+                  <div class="field">
+                    <label for="qQuantity">Cantidad *</label>
+                    <input id="qQuantity" name="quantity" type="number" data-rule="quantity" min="1" max="99999" value="1" required inputmode="numeric">
+                    <span class="field__icon" aria-hidden="true"></span><small class="field__msg"></small>
+                  </div>
+                </div>
+              </div>
+
+              <div class="step" data-step="3">
+                <div class="field field--grow">
+                  <label for="qDetails">Detalles (opcional)</label>
+                  <textarea id="qDetails" name="details" maxlength="200" rows="3" placeholder="Medidas, colores u otros detalles..."></textarea>
+                </div>
+                <div class="quote-summary" id="quoteSummary" aria-live="polite"></div>
+              </div>
+            </div>
+            <div class="wizard-nav">
+              <button type="button" class="btn outline" id="stepBack" hidden>‹ Atrás</button>
+              <button type="button" class="btn primary" id="stepNext">Siguiente ›</button>
+              <button type="submit" class="btn primary" id="stepSend" hidden>Enviar por WhatsApp ↗</button>
+            </div>
+          </form>
+          <aside class="card location-card" data-hydrate="location"></aside>
+        </div>
+      </div>
+    </section>
+
+    <section class="view" data-view="panel" aria-labelledby="roleTitle">
+      <div class="inner">
+        <div class="panel-head">
+          <div>
+            <p class="kicker">PANEL DE TRABAJO</p>
+            <h2 id="roleTitle">Panel</h2>
+          </div>
+          <div class="user-pill">
+            <span id="userInitial">C</span>
+            <div><b id="userName">Usuario</b><small id="userRole">CLIENTE</small></div>
+            <button type="button" id="logoutButton" class="text-btn">Salir ↗</button>
+          </div>
+        </div>
+        <div class="tabs" id="roleTabs" role="tablist"></div>
+        <div class="panel-body" id="roleContent"></div>
+      </div>
+    </section>
+  </main>
+
+  <div class="modal" id="loginModal" aria-hidden="true">
+    <div class="modal-backdrop" data-close="loginModal"></div>
+    <div class="modal-box" role="dialog" aria-modal="true" aria-labelledby="loginTitle">
+      <button type="button" class="modal-close" data-close="loginModal" aria-label="Cerrar">×</button>
+      <div class="modal-head">
+        <p class="kicker">ACCESO AL SISTEMA</p>
+        <h2 id="loginTitle">Bienvenido a Limatex</h2>
+        <p class="modal-text">Ingresa con tu cuenta de demostración.</p>
+      </div>
+      <div class="modal-body">
+        <form id="loginForm" novalidate>
+          <div class="field">
+            <label for="lUser">Usuario</label>
+            <input id="lUser" name="username" data-rule="user" autocomplete="username" maxlength="20" placeholder="Usuario">
+            <span class="field__icon" aria-hidden="true"></span><small class="field__msg"></small>
+          </div>
+          <div class="field">
+            <label for="lPass">Contraseña</label>
+            <input id="lPass" name="password" type="password" data-rule="pass" autocomplete="current-password" maxlength="40" placeholder="Contraseña">
+            <span class="field__icon" aria-hidden="true"></span><small class="field__msg"></small>
+          </div>
+          <p class="feedback" id="loginError" aria-live="polite"></p>
+          <button class="btn primary full" type="submit">Ingresar</button>
+        </form>
+        <div class="demo-access">
+          <b>Cuentas de demostración</b>
+          <span>Cliente: cliente / cliente123</span>
+          <span>Empleado: empleado / empleado123</span>
+          <span>Gerente: gerente / gerente123</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal" id="cartModal" aria-hidden="true">
+    <div class="modal-backdrop" data-close="cartModal"></div>
+    <div class="modal-box modal-box--wide" role="dialog" aria-modal="true" aria-labelledby="cartTitle">
+      <button type="button" class="modal-close" data-close="cartModal" aria-label="Cerrar">×</button>
+      <p class="kicker">TU SOLICITUD</p>
+      <h2 id="cartTitle">Productos seleccionados</h2>
+      <div class="list-wrap cart-wrap">
+        <div class="list" id="cartItems"></div>
+        <div class="pager">
+          <button type="button" id="cartPrev" aria-label="Página anterior">‹</button>
+          <span id="cartLabel">1 / 1</span>
+          <button type="button" id="cartNext" aria-label="Página siguiente">›</button>
+        </div>
+      </div>
+      <div class="cart-bottom">
+        <strong id="cartSummary">0 unidades</strong>
+        <button type="button" class="btn primary" id="sendCart">Solicitar por WhatsApp ↗</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal" id="detailModal" aria-hidden="true">
+    <div class="modal-backdrop" data-close="detailModal"></div>
+    <div class="modal-box modal-box--wide" role="dialog" aria-modal="true" aria-labelledby="detailTitle">
+      <button type="button" class="modal-close" data-close="detailModal" aria-label="Cerrar">×</button>
+      <div id="detailContent"></div>
+    </div>
+  </div>
+
+  <div class="lightbox" id="lightbox" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Imagen ampliada">
+    <button type="button" class="lightbox__close" id="lightboxClose" aria-label="Cerrar imagen">×</button>
+    <button type="button" class="lightbox__nav lightbox__nav--prev" id="lightboxPrev" aria-label="Imagen anterior">‹</button>
+    <button type="button" class="lightbox__nav lightbox__nav--next" id="lightboxNext" aria-label="Imagen siguiente">›</button>
+    <div class="lightbox__stage" id="lightboxStage"><img id="lightboxImage" alt="" draggable="false"></div>
+    <div class="lightbox__bar">
+      <button type="button" id="zoomOut" aria-label="Alejar">−</button>
+      <span id="zoomLevel">100%</span>
+      <button type="button" id="zoomIn" aria-label="Acercar">+</button>
+      <p id="lightboxCaption"></p>
+    </div>
+  </div>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+</body>
+</html>
